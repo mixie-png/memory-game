@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh; 
+    background-color: white;
+    display: flex;
+    font-family: 'Lato', sans-serif;
+  }
+
+  h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+  }  
+
+  li {
+    list-style: none;
+    width: 100px;
+  }
+
+  .deck {
+    background-image: linear-gradient(to top, #654ea3, #eaafc8);
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+  
+    padding: 16px;
+    border-radius: 5px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+  
+  .memory-card {
+    width: calc(25% - 10px);
+    height: calc(33% - 10px);
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px rgba(46, 61, 73, 0.5);
+  }
+
+  .memory-card:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+  }
+
+  .memory-card.flip {
+    transform: rotateY(180deg);
+  }
+  
+  .back-face,
+  .front-face {
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    padding: 20px;
+    border-radius: 5px;
+    backface-visibility: hidden;
+  }
+  
+  .front-face {
+    display: block;
+    transform: rotateY(180deg);
+    color: white;
+    background-color: rgb(170, 168, 221);
+  }
+  
+  .back-face { 
+    background-image: linear-gradient(
+      to right top,
+      #d16ba5,
+      #c777b9,
+      #ba83ca,
+      #aa8fd8,
+      #9a9ae1,
+      #8aa7ec,
+      #79b3f4,
+      #69bff8,
+      #52cffe,
+      #41dfff,
+      #46eefa,
+      #5ffbf1
+    );
+  }
+
+  .memory-game {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .score-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .reset {
+    cursor: pointer;
+  }
+
+  @keyframes rubberBand {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+  
+    30% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+  
+    40% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+  
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+  
+    65% {
+      transform: scale3d(.95, 1.05, 1);
+    }
+  
+    75% {
+      transform: scale3d(1.05, .95, 1);
+    }
+  
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
